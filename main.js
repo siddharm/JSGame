@@ -1,4 +1,5 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var platforms;
 
 function preload() {
     "use strict";
@@ -12,7 +13,7 @@ function preload() {
 
 function create() {
     "use strict";
-    var platforms = game.add.group();
+    platforms = game.add.group();
     platforms.enableBody = true;
     
     var bg = game.add.sprite(0, 0, 'background');
@@ -21,8 +22,8 @@ function create() {
 
     gr.body.immovable = true;
     
-    var ledge = platforms.create(-200, 300, 'ground');
-    ledge.body.immovable = true;
+    //var ledge = platforms.create(-200, 300, 'ground');
+    //ledge.body.immovable = true;
 }
 
 function update() {
