@@ -1,20 +1,30 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
-
-
-    function preload(){
+function preload() {
+    "use strict";
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    
+    game.load.image('background', 'assets/background.png');
+    game.load.image('ground', 'assets/ground.png');
     game.load.image('bmage', 'assets/black-mage.png');
-    }
+}
 
 
-function create(){
-    var s = game.add.sprite(0,0,'bmage');
+function create() {
+    "use strict";
+    var platforms = game.add.group();
+    platforms.enableBody = true;
     
-    }
+    var bg = game.add.sprite(0, 0, 'background');
+    var gr = platforms.create(0, game.world.height-100, 'ground');
+    var s = game.add.sprite(0, 0, 'bmage');
 
-function update(){
+    gr.body.immovable = true;
     
-    }
-    
+    var ledge = platforms.create(-200, 300, 'ground');
+    ledge.body.immovable = true;
+}
 
-
+function update() {
+    "use strict";
+}
